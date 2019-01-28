@@ -1,0 +1,19 @@
+#news-feed{
+    max-width: 700px;
+    margin: auto;
+    position: relative;
+    text-align: center;
+}
+
+.h4-bold {
+    /* color: blue; */
+    /* background-color: grey; */
+    text-align: center;
+}
+
+.news-title{
+    color:grey;
+    /* background-color: blue; */
+    border: 1px solid #000;
+    text-align: center;
+}
