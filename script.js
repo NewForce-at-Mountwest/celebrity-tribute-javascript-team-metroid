@@ -64,3 +64,55 @@ const linData = {
       countryOfResidence: "United States"
     }
   }
+
+
+const h1career = (text, style) => {
+    return `<h1 class="${style}">${text}</h1>`
+}
+
+const h2career = (text, style) => {
+  return `<h2 class="${style}">${text}</h2>`
+}
+
+const pcareer = (text, style) => {
+    return `<p class="${style}">${text}</p>`
+}
+
+const ulmusicals = (text, style) => {
+  return `<ul class="${style}">${text}
+              <li>${linData.career.MusicalsWritten[0]}</li>
+              <li>${linData.career.MusicalsWritten[1]}</li>
+              <li>${linData.career.MusicalsWritten[2]}</li>
+          </ul>`
+}
+
+document.querySelector("#career").innerHTML = `
+    ${h1career("Career", "h1")}
+    ${h2career("Introduction", "h2")}
+    ${pcareer(linData.career.shortIntro, "p")}
+    ${h2career("Musicals Written", "h2")}
+    ${ulmusicals("", "ul")}
+    ${h2career("Notable Roles", "h2")}
+    ${pcareer(linData.career.notableRoles, "p")}
+    ${h2career("Notable Songs", "h2")}
+    ${pcareer(linData.career.notableSongs, "p")}
+    ${h2career("Awards", "h2")}
+    ${pcareer(linData.career.awards, "p")}
+
+`
+
+// const careermarkup = `
+//  <div class="careerIntro">
+//     <h2>
+//         ${"Introduction"}
+//     </h2>
+//     <p class="location">${career.shortIntro}</p>
+//  </div>
+// `;
+
+// document.body.innerHTML = careermarkup;
+
+
+// let careerhtmlString = "";
+
+// document.querySelector("#career").innerHTML = careerhtmlString;
