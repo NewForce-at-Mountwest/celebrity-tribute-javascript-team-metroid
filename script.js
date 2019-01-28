@@ -65,67 +65,55 @@ const linData = {
     }
   }
 
+  const collabList = function(collabArray) {
+    let collabList = "";
+    for(let i = 0; i < collabArray.length; i++) {
+      collabList += `<li>${collabArray[i]}</li>`
+    }
+    return collabList;
+   }
+   
+   collabString = collabList(linData.executiveSummary.knownCollaborations);
+   document.querySelector("#executive-summary").innerHTML = collabString;
+
+   const aliasList = function(aliasArray) {
+    let aliasList = "";
+    for(let i = 0; i < aliasArray.length; i++) {
+      aliasList += `<li>${aliasArray[i]}</li>`
+    }
+    return aliasList;
+   }
+   
+   aliasString = aliasList(linData.executiveSummary.listOfAliases);
+   document.querySelector("#executive-summary").innerHTML = aliasString;
+
   const executiveSummaryH1 = function(name, style){
     return `<h1 class = ${style}>${name}</h1>`
   }
 
+  const executiveSummaryH2 = function(name, style){
+    return `<h2 class = ${style}>${name}</h2>`
+  }
+  
+  const executiveSummaryLi = function(text, style){
+    return `<ul class = ${style}>${text}</ul>`
+  }
   const executiveSummaryP = function(text, style){
     return `<p class = ${style}>${text}</p>`
   }
 
   const executiveImage = function(image, style){
-    return  `<image class = ${style}>${image}`
+    return  `<img class = ${style} src = ${image.photURL}>`
   }
 
-  const collaborations = executiveSummaryP(linData.executiveSummary.knownCollaborations, "p")
+  // const collaborations = executiveSummaryLi(linData.executiveSummary.knownCollaborations, "ul")
 
-  const image = executiveImage(linData.executiveSummary.image.photURL, "https://pmcvariety.files.wordpress.com/2018/07/lin-manuel.jpg?w=1000")
+  const image = executiveImage(linData.executiveSummary.image, "https://pmcvariety.files.wordpress.com/2018/07/lin-manuel.jpg?w=1000", "img")
 
-  const aliases = executiveSummaryP(linData.executiveSummary.listOfAliases)
+  // const aliases = executiveSummaryP(linData.executiveSummary.listOfAliases)
 
   const residence = executiveSummaryP(linData.executiveSummary.countryOfResidence)
 
-  let executiveSummaryHTMLString = executiveSummaryH1("Lin Manuel Miranda", "h1") + executiveSummaryP(`Known Collaborators: ${collaborations}`, "p") + executiveImage(`<img src=${image}>`, "img") + executiveSummaryP(`Aliases: ${aliases}`, "p") + executiveSummaryP(`Residence: ${residence}`)
+  let executiveSummaryHTMLString = executiveSummaryH1("Lin Manuel Miranda", "h1") + executiveSummaryH2("Known Collaborators:", "h2") + executiveSummaryLi(`${collabString}`, "ul") + executiveImage(`${image}`, "img") + executiveSummaryH2("Known Aliases", "h2") + executiveSummaryP(`${aliasString}`, "p") + executiveSummaryH2("Known Residence", "h2") + executiveSummaryP(`${residence}`)
 
   document.querySelector("#executive-summary").innerHTML = executiveSummaryHTMLString
-
-
-  
-//Personal page
-
-const h1personal = function(name, style) {
-    return `<h1 class="${style}">${name}</h1>`
-}
-
-const personalPara = function(text, style) {
-  return `<p class="${style}">${text}</p>`
-}
-
-const familySection = function(text, style, image, imgClass) {
-  return `<section class="wifeDiv"><p class="${style}">${text}</p><img src="${image}" alt="" class="${imgClass}"></section>`
-}
-
-const wife = familySection(linData.personalLife.family.spouse, "family", "https://www.gannett-cdn.com/-mm-/bc4847f0b21f1d3e6d397104e9816c0897030a90/c=0-92-3668-2164/local/-/media/2018/02/02/USATODAY/USATODAY/636531785687749795-GTY-884916490-95769085.JPG?width=3200&height=1680&fit=crop", "family-image")
-
-
-const children = familySection(linData.personalLife.family.kids, "family", "https://i.pinimg.com/736x/87/9a/c1/879ac1a04183fc8807664c9a5663a09b--the-kid-the-ojays.jpg", "family-image");
-
-const parents = familySection(linData.personalLife.family.parents, "family", "https://media.broadway.com/photos/large/67051.jpg", "family-image");
-
-const petSection = function (style, text, image, imgClass){
-  return `<section class = "${style}"><p>${text}</p><img src="${image}" class = "${imgClass}"></section>`
-}
-
-const pets = petSection("family", linData.personalLife.family.pets[1], "https://pbs.twimg.com/media/C4OtiHkWYAAvxKt.jpg", "family-image") + petSection("family", linData.personalLife.family.pets[0], "http://celebritydogwatcher.com/wp-content/uploads/2017/02/celebrity_french_bulldog_names-300x285.jpg", "family-image");
-
-
-let family = `<div class = "familyDiv">${wife} ${children} ${parents}</div>`; 
-let petString = `<div class = "petDiv">${pets}</div>`;
-
-let personalHTMLString = h1personal("Lin Manual Miranda", "h1") + personalPara(`Birth Date: ${linData.personalLife.birthDate}`) + personalPara(`Birth Place: ${linData.personalLife.birthLocation}`, "p") + personalPara(`City of Residence: ${linData.personalLife.cityOfResidence}`, "p") + h1personal(`Family`, "h1") + family + h1personal("Pets", "h1") + petString;
-
-document.querySelector("#personal-life").innerHTML = personalHTMLString;
-
-//Personal Page
-
-
