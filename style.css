@@ -1,0 +1,30 @@
+h1 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 4em;
+    padding-top: 2em;
+}
+
+p {
+    text-align: center;
+    font-size: 1em;
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+img {
+    width: 75%;
+    height: 75%;
+    object-fit: scale-down;
+}

@@ -64,3 +64,26 @@ const linData = {
       countryOfResidence: "United States"
     }
   }
+  const executiveSummaryH1 = function(name, style){
+    return `<h1 class = ${style}>${name}</h1>`
+  }
+
+  const executiveSummaryP = function(text, style){
+    return `<p class = ${style}>${text}</p>`
+  }
+
+  const executiveImage = function(image, style){
+    return  `<image class = ${style}>${image}`
+  }
+
+  const collaborations = executiveSummaryP(linData.executiveSummary.knownCollaborations, "p")
+
+  const image = executiveImage(linData.executiveSummary.image.photURL, "https://pmcvariety.files.wordpress.com/2018/07/lin-manuel.jpg?w=1000")
+
+  const aliases = executiveSummaryP(linData.executiveSummary.listOfAliases)
+
+  const residence = executiveSummaryP(linData.executiveSummary.countryOfResidence)
+
+  let executiveSummaryHTMLString = executiveSummaryH1("Lin Manuel Miranda", "h1") + executiveSummaryP(`Known Collaborators: ${collaborations}`, "p") + executiveImage(`<img src=${image}>`, "img") + executiveSummaryP(`Aliases: ${aliases}`, "p") + executiveSummaryP(`Residence: ${residence}`)
+
+  document.querySelector("#executive-summary").innerHTML = executiveSummaryHTMLString
