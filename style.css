@@ -43,3 +43,18 @@ a {
     text-decoration: none;
     font-weight: bold;
 }
+
+.careerDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+.career-image {
+    width: 20em;
+    height: 15em;
+}
