@@ -70,26 +70,17 @@ const h1career = (text, style) => {
     return `<h1 class="${style}">${text}</h1>`
 }
 
-const careerIntroduction = (text, style) => {
-  return `<h2 class="${style}">${text}</h2>`
+const careerPara = (text, style) => {
+  return `<p class="${style}">${text}</p>`
 }
 
-const pcareer = (text, style) => {
-    return `<p class="${style}">${text}</p>`
-}
-
-const careerMusicals = (text, style) => {
-  return `<h2 class="${style}">${text}</h2>
-          <ul>
-              <li>${linData.career.MusicalsWritten[0]}</li>
-              <li>${linData.career.MusicalsWritten[1]}</li>
-              <li>${linData.career.MusicalsWritten[2]}</li>
-          </ul>`
+const careerIntro = function(text, style, image, imgClass) {
+  return `<section class="careerDiv"><p class="${style}">${text}</p><img src="${image}" alt="" class="${imgClass}"></section>`
 }
 
 document.querySelector("#career").innerHTML = `
     ${h1career("Career", "h1")}
-    ${careerIntroduction("Introduction", "h2")}
+    ${careerIntro("Introduction", "h2")}
     ${pcareer(linData.career.shortIntro, "p")}
     ${careerMusicals("Musicals Written", "h2")}
 `
@@ -116,3 +107,41 @@ document.querySelector("#career").innerHTML = `
 // let careerhtmlString = "" + "";
 
 // document.querySelector("#career").innerHTML = careerhtmlString;
+
+
+//Personal page
+
+const h1personal = function(name, style) {
+    return `<h1 class="${style}">${name}</h1>`
+}
+
+const personalPara = function(text, style) {
+  return `<p class="${style}">${text}</p>`
+}
+
+const familySection = function(text, style, image, imgClass) {
+  return `<section class="wifeDiv"><p class="${style}">${text}</p><img src="${image}" alt="" class="${imgClass}"></section>`
+}
+
+const wife = familySection(linData.personalLife.family.spouse, "family", "https://www.gannett-cdn.com/-mm-/bc4847f0b21f1d3e6d397104e9816c0897030a90/c=0-92-3668-2164/local/-/media/2018/02/02/USATODAY/USATODAY/636531785687749795-GTY-884916490-95769085.JPG?width=3200&height=1680&fit=crop", "family-image")
+
+
+const children = familySection(linData.personalLife.family.kids, "family", "https://i.pinimg.com/736x/87/9a/c1/879ac1a04183fc8807664c9a5663a09b--the-kid-the-ojays.jpg", "family-image");
+
+const parents = familySection(linData.personalLife.family.parents, "family", "https://media.broadway.com/photos/large/67051.jpg", "family-image");
+
+const petSection = function (style, text, image, imgClass){
+  return `<section class = "${style}"><p>${text}</p><img src="${image}" class = "${imgClass}"></section>`
+}
+
+const pets = petSection("family", linData.personalLife.family.pets[1], "https://pbs.twimg.com/media/C4OtiHkWYAAvxKt.jpg", "family-image") + petSection("family", linData.personalLife.family.pets[0], "http://celebritydogwatcher.com/wp-content/uploads/2017/02/celebrity_french_bulldog_names-300x285.jpg", "family-image");
+
+
+let family = `<div class = "familyDiv">${wife} ${children} ${parents}</div>`; 
+let petString = `<div class = "petDiv">${pets}</div>`;
+
+let personalHTMLString = h1personal("Lin Manual Miranda", "h1") + personalPara(`Birth Date: ${linData.personalLife.birthDate}`) + personalPara(`Birth Place: ${linData.personalLife.birthLocation}`, "p") + personalPara(`City of Residence: ${linData.personalLife.cityOfResidence}`, "p") + h1personal(`Family`, "h1") + family + h1personal("Pets", "h1") + petString;
+
+document.querySelector("#personal-life").innerHTML = personalHTMLString;
+
+//Personal Page
