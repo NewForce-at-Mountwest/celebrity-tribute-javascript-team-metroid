@@ -66,6 +66,8 @@ const linData = {
   }
 
   
+//Personal page
+
 const h1personal = function(name, style) {
     return `<h1 class="${style}">${name}</h1>`
 }
@@ -95,6 +97,9 @@ const pets = petSection("family", linData.personalLife.family.pets[1], "https://
 let family = `<div class = "familyDiv">${wife} ${children} ${parents}</div>`; 
 let petString = `<div class = "petDiv">${pets}</div>`;
 
-let personalHTMLString = h1personal("Lin Manual Miranda", "h1") + personalPara(`Birth Date: ${linData.personalLife.birthDate}`, "p") + h1personal(`Family`, "h1") + family + h1personal("Pets", "h1") + petString
+let personalHTMLString = h1personal("Lin Manual Miranda", "h1") + personalPara(`Birth Date: ${linData.personalLife.birthDate}`) + personalPara(`Birth Place: ${linData.personalLife.birthLocation}`, "p") + personalPara(`City of Residence: ${linData.personalLife.cityOfResidence}`, "p") + h1personal(`Family`, "h1") + family + h1personal("Pets", "h1") + petString;
 
 document.querySelector("#personal-life").innerHTML = personalHTMLString;
+
+//Personal Page
+
