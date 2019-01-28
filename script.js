@@ -70,7 +70,7 @@ const h1career = (text, style) => {
     return `<h1 class="${style}">${text}</h1>`
 }
 
-const h2career = (text, style) => {
+const careerIntroduction = (text, style) => {
   return `<h2 class="${style}">${text}</h2>`
 }
 
@@ -78,8 +78,9 @@ const pcareer = (text, style) => {
     return `<p class="${style}">${text}</p>`
 }
 
-const ulmusicals = (text, style) => {
-  return `<ul class="${style}">${text}
+const careerMusicals = (text, style) => {
+  return `<h2 class="${style}">${text}</h2>
+          <ul>
               <li>${linData.career.MusicalsWritten[0]}</li>
               <li>${linData.career.MusicalsWritten[1]}</li>
               <li>${linData.career.MusicalsWritten[2]}</li>
@@ -88,18 +89,17 @@ const ulmusicals = (text, style) => {
 
 document.querySelector("#career").innerHTML = `
     ${h1career("Career", "h1")}
-    ${h2career("Introduction", "h2")}
+    ${careerIntroduction("Introduction", "h2")}
     ${pcareer(linData.career.shortIntro, "p")}
-    ${h2career("Musicals Written", "h2")}
-    ${ulmusicals("", "ul")}
-    ${h2career("Notable Roles", "h2")}
-    ${pcareer(linData.career.notableRoles, "p")}
-    ${h2career("Notable Songs", "h2")}
-    ${pcareer(linData.career.notableSongs, "p")}
-    ${h2career("Awards", "h2")}
-    ${pcareer(linData.career.awards, "p")}
-
+    ${careerMusicals("Musicals Written", "h2")}
 `
+
+// ${h2career("Notable Roles", "h2")}
+// ${pcareer(linData.career.notableRoles, "p")}
+// ${h2career("Notable Songs", "h2")}
+// ${pcareer(linData.career.notableSongs, "p")}
+// ${h2career("Awards", "h2")}
+// ${pcareer(linData.career.awards, "p")}
 
 // const careermarkup = `
 //  <div class="careerIntro">
@@ -113,6 +113,6 @@ document.querySelector("#career").innerHTML = `
 // document.body.innerHTML = careermarkup;
 
 
-// let careerhtmlString = "";
+// let careerhtmlString = "" + "";
 
 // document.querySelector("#career").innerHTML = careerhtmlString;
