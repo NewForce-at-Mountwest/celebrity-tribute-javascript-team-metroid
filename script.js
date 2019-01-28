@@ -93,7 +93,7 @@ function buildComponent(h4Style, h4Name, imgNewsLink, imgLink, imgStyle, aLink, 
   const h4NewsFinished = h4News(h4Style, h4Name);
   const imageNewsFinished = imageNews(imgNewsLink, imgLink, imgStyle)
   const aNewsFinished = aNews(aLink, aStyle, aTitle)
-  return `<figure>${h4NewsFinished} ${imageNewsFinished} <figcaption>${aNewsFinished}</figcaption></figure>`
+  return `<figure><figcaption>${h4NewsFinished}</figcaption> ${imageNewsFinished} <figcaption>${aNewsFinished}</figcaption></figure>`
 }
 
 let titleHTMLString = ""
