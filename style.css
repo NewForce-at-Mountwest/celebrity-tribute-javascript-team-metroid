@@ -1,3 +1,49 @@
+#news-feed{
+    max-width: 750px;
+    margin: auto;
+    /* position: relative; */
+    text-align: center;
+}
+
+.news-header {
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
+
+.news-title{
+    color:white;
+    /* background-color: blue; */
+    /* border: 1px solid #000; */
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.news-image {
+    margin-top: 0;
+    padding-top: 0;
+    width: 660px;
+    height: 370px;
+    background-color: black;
+}
+
+figure {
+    background-color: black;
+    display: inline-block;
+    border: 1px solid white;
+}
+
+figcaption {
+    text-align: center;
+    background-color: black;
+    margin:auto;
+}
+
+
 body {
     background-color: lightslategray;
 }
