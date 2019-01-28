@@ -80,23 +80,36 @@ const aNews = (link, style, title) => {
   return `<a href="${link}" class=${style}>${title}</a>`
 
 }
-const imageNews = (link, style) => {
-  return `<img src=${link} class=${style}>`
+const imageNews = (newsLink, link, style) => {
+  return `<a href=${newsLink}> <img src=${link} class=${style}></a>`
 }
-function buildComponent(h4Style, h4Name, imgLink, imgStyle, aLink, aStyle, aTitle) {
+
+function h1News(name){
+  return `<h1>${name}</h1>`
+}
+
+
+function buildComponent(h4Style, h4Name, imgNewsLink, imgLink, imgStyle, aLink, aStyle, aTitle) {
   const h4NewsFinished = h4News(h4Style, h4Name);
-  const imageNewsFinished = imageNews(imgLink, imgStyle)
+  const imageNewsFinished = imageNews(imgNewsLink, imgLink, imgStyle)
   const aNewsFinished = aNews(aLink, aStyle, aTitle)
-  return `${h4NewsFinished} ${imageNewsFinished} <br> ${aNewsFinished}`
+  return `<figure>${h4NewsFinished} ${imageNewsFinished} <figcaption>${aNewsFinished}</figcaption></figure>`
 }
 
 let titleHTMLString = ""
 for (let i = 0; i < linData.newsfeed.length; i++) {
-  titleHTMLString = titleHTMLString + buildComponent("news-header", linData.newsfeed[i].date, linData.newsfeed[i].image, "news-image", linData.newsfeed[i].url, "news-title", linData.newsfeed[i].title)
+  titleHTMLString = titleHTMLString + buildComponent("news-header", linData.newsfeed[i].date, linData.newsfeed[i].url, linData.newsfeed[i].image, "news-image", linData.newsfeed[i].url, "news-title", linData.newsfeed[i].title)
 }
 
-document.querySelector("#news-feed").innerHTML = titleHTMLString
-  }
+let newsfeedHeader = h1News("News Feed")
+
+function buildFinalComponent(){
+  return newsfeedHeader + titleHTMLString
+}
+
+document.querySelector("#news-feed").innerHTML = buildFinalComponent();
+
+
 
   
 //Personal page
