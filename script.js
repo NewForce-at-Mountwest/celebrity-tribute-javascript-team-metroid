@@ -72,7 +72,7 @@ const linData = {
 }
 
 
-
+//Newsfeed
 const h4News = (style, date) => {
   return `<h4 class=${style}>${date}</h4>`
 }
@@ -109,11 +109,12 @@ function buildFinalComponent(){
 
 document.querySelector("#news-feed").innerHTML = buildFinalComponent();
 
-
+//End of Newsfeed
 
   
 //Personal page
 
+//Building block functions
 const h1personal = function(name, style) {
     return `<h1 class="${style}">${name}</h1>`
 }
@@ -126,6 +127,7 @@ const familySection = function(text, style, image, imgClass) {
   return `<section class="wifeDiv"><p class="${style}">${text}</p><img src="${image}" alt="" class="${imgClass}"></section>`
 }
 
+//Family variables (function calls)
 const wife = familySection(linData.personalLife.family.spouse, "family", "https://www.gannett-cdn.com/-mm-/bc4847f0b21f1d3e6d397104e9816c0897030a90/c=0-92-3668-2164/local/-/media/2018/02/02/USATODAY/USATODAY/636531785687749795-GTY-884916490-95769085.JPG?width=3200&height=1680&fit=crop", "family-image")
 
 
@@ -133,19 +135,23 @@ const children = familySection(linData.personalLife.family.kids, "family", "http
 
 const parents = familySection(linData.personalLife.family.parents, "family", "https://media.broadway.com/photos/large/67051.jpg", "family-image");
 
+//Pet function and string
 const petSection = function (style, text, image, imgClass){
   return `<section class = "${style}"><p>${text}</p><img src="${image}" class = "${imgClass}"></section>`
 }
 
 const pets = petSection("family", linData.personalLife.family.pets[1], "https://pbs.twimg.com/media/C4OtiHkWYAAvxKt.jpg", "family-image") + petSection("family", linData.personalLife.family.pets[0], "http://celebritydogwatcher.com/wp-content/uploads/2017/02/celebrity_french_bulldog_names-300x285.jpg", "family-image");
 
-
+//Combines strings
 let family = `<div class = "familyDiv">${wife} ${children} ${parents}</div>`; 
 let petString = `<div class = "petDiv">${pets}</div>`;
 
-let personalHTMLString = h1personal("Lin Manual Miranda", "h1") + personalPara(`Birth Date: ${linData.personalLife.birthDate}`) + personalPara(`Birth Place: ${linData.personalLife.birthLocation}`, "p") + personalPara(`City of Residence: ${linData.personalLife.cityOfResidence}`, "p") + h1personal(`Family`, "h1") + family + h1personal("Pets", "h1") + petString;
-
+//DOMString 
+let personalHTMLString = h1personal("Lin Manuel Miranda", "h1") + personalPara(`Birth Date: ${linData.personalLife.birthDate}`) + personalPara(`Birth Place: ${linData.personalLife.birthLocation}`, "p") + personalPara(`City of Residence: ${linData.personalLife.cityOfResidence}`, "p") + personalPara(`Nationality: ${linData.personalLife.nationality}`) + h1personal(`Family`, "h1") + family + h1personal("Pets", "h1") + petString;
+//Prints to DOM
 document.querySelector("#personal-life").innerHTML = personalHTMLString;
 
 //Personal Page
+
+
 
