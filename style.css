@@ -1,13 +1,36 @@
+
+body {
+    background-color: lightslategray;
+}
+
 h1 {
     font-weight: bold;
     text-align: center;
-    font-size: 4em;
+    font-size: 4 em;
     padding-top: 2em;
 }
 
 p {
     text-align: center;
     font-size: 1em;
+}
+
+.familyDiv {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+.family-image {
+    width: 23em;
+    height: 20em;
+}
+
+.petDiv {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 
 }
 
@@ -21,10 +44,12 @@ a {
     color: black;
     text-decoration: none;
     font-weight: bold;
+
 }
 
 img {
     width: 75%;
     height: 75%;
     object-fit: scale-down;
+
 }
