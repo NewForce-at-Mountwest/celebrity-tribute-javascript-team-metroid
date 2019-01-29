@@ -116,15 +116,15 @@ document.querySelector("#news-feed").innerHTML = buildFinalComponent();
 
 //Building block functions
 const h1personal = function(name) {
-    return `<h1 class="h1">${name}</h1>`
+  return `<h1 class="h1">${name}</h1>`
 }
 
 const personalPara = function(text) {
-  return `<p class="p">${text}</p>`
+return `<p class="p">${text}</p>`
 }
 
 const familySection = function(text, style, image, imgClass) {
-  return `<section class="wifeDiv"><p class="${style}">${text}</p><img src="${image}" alt="" class="${imgClass}"></section>`
+return `<section class="wifeDiv"><p class="${style}">${text}</p><img src="${image}" alt="" class="${imgClass}"></section>`
 }
 
 //Family variables (function calls)
@@ -137,7 +137,7 @@ const parents = familySection(linData.personalLife.family.parents, "family", "ht
 
 //Pet function and string
 const petSection = function (style, text, image, imgClass){
-  return `<section class = "${style}"><p>${text}</p><img src="${image}" class = "${imgClass}"></section>`
+return `<section class = "${style}"><p>${text}</p><img src="${image}" class = "${imgClass}"></section>`
 }
 
 const pets = petSection("family", linData.personalLife.family.pets[1], "https://pbs.twimg.com/media/C4OtiHkWYAAvxKt.jpg", "family-image") + petSection("family", linData.personalLife.family.pets[0], "http://celebritydogwatcher.com/wp-content/uploads/2017/02/celebrity_french_bulldog_names-300x285.jpg", "family-image");
@@ -149,7 +149,7 @@ let petString = `<div class = "petDiv">${pets}</div>`;
 
 //Function to create entire HTML String
 function createPersonalHTML(name, birthDateText, birthPlaceText, residenceText, nationalityText, familyHeaderText,  headerPets) {
-  return personalHTMLString = h1personal(name) + personalPara(birthDateText) + personalPara(birthPlaceText) + personalPara(residenceText) + personalPara(nationalityText) + h1personal(familyHeaderText) + family + h1personal(headerPets) + petString;
+return personalHTMLString = h1personal(name) + personalPara(birthDateText) + personalPara(birthPlaceText) + personalPara(residenceText) + personalPara(nationalityText) + h1personal(familyHeaderText) + family + h1personal(headerPets) + petString;
 }
 
 personalHTMLString = createPersonalHTML("Lin Manuel Miranda", `Birth Date: ${linData.personalLife.birthDate}`, `Birth Place: ${linData.personalLife.birthLocation}`, `City of Residence: ${linData.personalLife.cityOfResidence}`, `Nationality: ${linData.personalLife.nationality}`, `Family`, "Pets")
@@ -159,3 +159,64 @@ document.querySelector("#personal-life").innerHTML = personalHTMLString;
 //End Personal Page
 
 
+// beginning of executiveSummary
+
+  //  declaring functions for each piece
+
+  const executiveSummaryH1 = function(name, style){
+    return `<h1 class = ${style}>${name}</h1>`
+  }
+
+  const executiveSummaryH2 = function(name, style){
+    return `<h2 class = ${style}>${name}</h2>`
+  }
+  
+  const executiveSummaryLi = function(text, style){
+    return `<ul class = ${style}>${text}</ul>`
+  }
+  const executiveSummaryP = function(text, style){
+    return `<p class = ${style}>${text}</p>`
+  }
+
+
+// list of collaborators
+
+  const collabList = function(collabArray) {
+    let collabList = "";
+    for(let i = 0; i < collabArray.length; i++) {
+      collabList += `<li>${collabArray[i]}</li>`
+    }
+    return collabList;
+   }
+   
+   collabString = collabList(linData.executiveSummary.knownCollaborations);
+   document.querySelector("#executive-summary").innerHTML = collabString;
+
+  //  list of aliases
+
+   const aliasList = function(aliasArray, style) {
+    let aliasList = "";
+    for(let i = 0; i < aliasArray.length; i++) {
+      aliasList += `<li>${aliasArray[i]}</li>`
+    }
+    return `<ul class = ${style}>${aliasList}</ul>`;
+   }
+   
+   aliasString = aliasList(linData.executiveSummary.listOfAliases);
+   document.querySelector("#executive-summary").innerHTML = aliasString;
+
+  const executiveImage = function(image, style) {
+    return `<img class = ${style} src=${image}>`
+  }
+
+  const image = executiveImage(linData.executiveSummary.image.photURL)
+
+  const residence = executiveSummaryP(linData.executiveSummary.countryOfResidence)
+
+  // creating htmlstring
+
+  let executiveSummaryHTMLString = executiveSummaryH1("Lin Manuel Miranda", "h1") + image + executiveSummaryH2("Known Collaborators:", "h2") + executiveSummaryLi(`${collabString}`, "ul") +  executiveSummaryH2("Known Aliases", "h2") + executiveSummaryP(`${aliasString}`, "p") + executiveSummaryH2("Known Residence", "h2") + executiveSummaryP(`${residence}`)
+
+  document.querySelector("#executive-summary").innerHTML = executiveSummaryHTMLString
+
+  // end of exec summary
