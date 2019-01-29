@@ -111,7 +111,62 @@ document.querySelector("#news-feed").innerHTML = buildFinalComponent();
 
 //End of Newsfeed
 
-  
+
+//Career page
+
+//  Function to insert spacing in Career Introduction Content.
+  function Intro() {
+    var replaceValue = linData.career.shortIntro.replace(/\./g, ". <br>");
+    linData.career.shortIntro = replaceValue;
+  }
+  Intro();
+
+//  Function to List items in Career Array(s) - - *Thank you, Sable!!!
+const List = function(Array) {
+  let List = "";
+  for(let i = 0; i < Array.length; i++) {
+    List += `<li>${Array[i]}</li>`
+  }
+  return List;
+  }
+//  Strings to insert into Career Variables
+musicString = List(linData.career.MusicalsWritten);
+rolesString = List(linData.career.notableRoles);
+songsString = List(linData.career.notableSongs);
+awardsString = List(linData.career.awards);
+
+//  Function to create "Career" Section Header
+let h1career = function(text, style) {
+    return `<h1 class="${style}">${text}</h1>`
+}
+let heading = h1career("Career", "h1");
+
+//  Function to create "Introduction" Section (paragraph-style)
+let careerIntro = function(image, title, text) {
+  return `<section class="careerSect"><img src="${image}" alt=""><h2>${title}</h2><p>${text}</p></section>`
+}
+let intro = careerIntro("https://res.cloudinary.com/solt/image/upload/q_90,fl_progressive,f_auto/v1525368782/lin-manuel_ecupxp.jpg", "Introduction:", linData.career.shortIntro)
+
+//  Function and Parameters / Arguments to create "Musicals, Roles, Songs, and Awards" Sections (Unordered HTML Listings)
+let careerSection = function(image, title, text) {
+  return `<section class="careerSect"><img src="${image}" alt=""><h2>${title}</h2>
+  <ul>${text}</ul></section>`
+}
+// Career Variables ("Musicals", "Roles", "Songs", and "Awards"), careerSection Function / Parameters
+let musicals = careerSection("https://bloximages.chicago2.vip.townnews.com/siouxcityjournal.com/content/tncms/assets/v3/editorial/8/1f/81f5a6d0-1fb5-53de-a4cd-aff4c7c1c1bd/511560f9adbc2.image.jpg", "Musicals Written:", musicString);
+let roles = careerSection("https://i.dailymail.co.uk/i/pix/2017/05/15/10/4057AE4100000578-4506596-image-a-57_1494839076220.jpg", "Notable Roles:", rolesString);
+let songs = careerSection("https://i.ytimg.com/vi/E8_ARd4oKiI/maxresdefault.jpg", "Notable Songs:", songsString);
+let awards = careerSection("https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2017/11/lin-manuel_miranda.jpg", "Awards:", awardsString);
+let career = `${intro} ${musicals} ${roles} ${songs} ${awards}`; 
+
+// Build HTMLString
+let careerHTMLString = heading + career;
+// Print HTMLString to DOM (within "career" section)
+document.querySelector("#career").innerHTML = careerHTMLString;
+
+//End of Career page
+
+
 //Personal page
 
 //Building block functions
