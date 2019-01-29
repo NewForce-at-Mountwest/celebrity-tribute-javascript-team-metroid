@@ -126,3 +126,7 @@ hr {
     border-style: inset;
     border-width: 0px;
   }
+
+  .careerSect br {
+    line-height: 2rem;
+  }

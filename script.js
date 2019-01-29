@@ -116,10 +116,7 @@ document.querySelector("#news-feed").innerHTML = buildFinalComponent();
 
 //  Function to insert spacing in Career Introduction Content.
   function Intro() {
-    var stringValue = linData.career.shortIntro;
-    for(let i = 0; i < linData.career.shortIntro.length; i++) {
-    var replaceValue = stringValue.replace(". ", ". <hr>");
-    }
+    var replaceValue = linData.career.shortIntro.replace(/\./g, ". <br>");
     linData.career.shortIntro = replaceValue;
   }
   Intro();
@@ -145,13 +142,13 @@ let h1career = function(text, style) {
 let heading = h1career("Career", "h1");
 
 //  Function to create "Introduction" Section (paragraph-style)
-let careerIntro = function(image, title, text, style) {
+let careerIntro = function(image, title, text) {
   return `<section class="careerSect"><img src="${image}" alt=""><b>${title}</b><p>${text}</p></section>`
 }
 let intro = careerIntro("https://res.cloudinary.com/solt/image/upload/q_90,fl_progressive,f_auto/v1525368782/lin-manuel_ecupxp.jpg", "Introduction:", linData.career.shortIntro)
 
 //  Function and Parameters / Arguments to create "Musicals, Roles, Songs, and Awards" Sections (Unordered HTML Listings)
-let careerSection = function(image, title, text, style) {
+let careerSection = function(image, title, text) {
   return `<section class="careerSect"><img src="${image}" alt=""><b>${title}</b><ul>${text}</ul></section>`
 }
 // Career Variables ("Musicals", "Roles", "Songs", and "Awards"), careerSection Function / Parameters
