@@ -143,13 +143,14 @@ let heading = h1career("Career", "h1");
 
 //  Function to create "Introduction" Section (paragraph-style)
 let careerIntro = function(image, title, text) {
-  return `<section class="careerSect"><img src="${image}" alt=""><b>${title}</b><p>${text}</p></section>`
+  return `<section class="careerSect"><img src="${image}" alt=""><h2>${title}</h2><p>${text}</p></section>`
 }
 let intro = careerIntro("https://res.cloudinary.com/solt/image/upload/q_90,fl_progressive,f_auto/v1525368782/lin-manuel_ecupxp.jpg", "Introduction:", linData.career.shortIntro)
 
 //  Function and Parameters / Arguments to create "Musicals, Roles, Songs, and Awards" Sections (Unordered HTML Listings)
 let careerSection = function(image, title, text) {
-  return `<section class="careerSect"><img src="${image}" alt=""><b>${title}</b><ul>${text}</ul></section>`
+  return `<section class="careerSect"><img src="${image}" alt=""><h2>${title}</h2>
+  <ul>${text}</ul></section>`
 }
 // Career Variables ("Musicals", "Roles", "Songs", and "Awards"), careerSection Function / Parameters
 let musicals = careerSection("https://bloximages.chicago2.vip.townnews.com/siouxcityjournal.com/content/tncms/assets/v3/editorial/8/1f/81f5a6d0-1fb5-53de-a4cd-aff4c7c1c1bd/511560f9adbc2.image.jpg", "Musicals Written:", musicString);
