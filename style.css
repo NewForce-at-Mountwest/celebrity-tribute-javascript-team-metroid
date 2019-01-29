@@ -99,7 +99,7 @@ a {
     font-weight: bold;
 }
 
-.careerDiv {
+.careerSect {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -109,7 +109,7 @@ a {
     padding: 1em;
 }
 
-.careerDiv img {
+.careerSect img {
     width: 30em;
     height: 20em;
     outline: 2px solid black;
@@ -119,10 +119,10 @@ a {
 
 hr { 
     display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: 0.025em;
+    margin-bottom: 0.025em;
     margin-left: auto;
     margin-right: auto;
     border-style: inset;
-    border-width: 1px;
+    border-width: 0px;
   }
