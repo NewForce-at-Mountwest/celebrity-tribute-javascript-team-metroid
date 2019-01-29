@@ -111,6 +111,8 @@ document.querySelector("#news-feed").innerHTML = buildFinalComponent();
 
 //End of Newsfeed
 
+//Career page
+
 const List = function(Array) {
   let List = "";
   for(let i = 0; i < Array.length; i++) {
@@ -132,37 +134,42 @@ awardsString = List(linData.career.awards);
 document.querySelector("#career").innerHTML = awardsString;
 
 
-const h1career = (text, style) => {
+let h1career = (text, style) => {
     return `<h1 class="${style}">${text}</h1>`
 }
+let heading = h1career("Career", "h1");
 
-const careerPara = (text, style) => {
+// const title = h1career("Introduction", "h1");
+
+let careerPara = (text, style) => {
   return `<p class="${style}">${text}</p>`
 }
 
-const careerIntro = function(h2, text, style, image, imgClass) {
-  return `<section class="careerDiv"><b>${h2}</b><p class="${style}">${text}</p><img src="${image}" alt="" class="${imgClass}"></section>`
+let careerIntro = function(image, title, text, style) {
+  return `<section class="careerDiv"><img src="${image}" alt=""><b>${title}</b><p>${text}</p></section>`
 }
-const intro = careerIntro("Introduction:", linData.career.shortIntro, "career", "https://www.thefamouspeople.com/profiles/images/lin-manuel-miranda-3.jpg", "career-image")
+let intro = careerIntro("https://res.cloudinary.com/solt/image/upload/q_90,fl_progressive,f_auto/v1525368782/lin-manuel_ecupxp.jpg", "Introduction:", linData.career.shortIntro)
 
 
-const careerSection = function(h2, text, style, image, imgClass) {
-  return `<section class="careerDiv"><b>${h2}</b><ul class="${style}">${text}</ul><img src="${image}" alt="" class="${imgClass}"></section>`
+let careerSection = function(image, title, text, style) {
+  return `<section class="careerDiv"><img src="${image}" alt=""><b>${title}</b><ul>${text}</ul></section>`
 }
 
-const musicals = careerSection("Musicals Written:", musicString, "career", "https://bloximages.chicago2.vip.townnews.com/siouxcityjournal.com/content/tncms/assets/v3/editorial/8/1f/81f5a6d0-1fb5-53de-a4cd-aff4c7c1c1bd/511560f9adbc2.image.jpg", "career-image");
+let musicals = careerSection("https://bloximages.chicago2.vip.townnews.com/siouxcityjournal.com/content/tncms/assets/v3/editorial/8/1f/81f5a6d0-1fb5-53de-a4cd-aff4c7c1c1bd/511560f9adbc2.image.jpg", "Musicals Written:", musicString);
 
-const roles = careerSection("Notable Roles:", rolesString, "career", "https://i.dailymail.co.uk/i/pix/2017/05/15/10/4057AE4100000578-4506596-image-a-57_1494839076220.jpg", "career-image");
+let roles = careerSection("https://i.dailymail.co.uk/i/pix/2017/05/15/10/4057AE4100000578-4506596-image-a-57_1494839076220.jpg", "Notable Roles:", rolesString);
 
-const songs = careerSection("Notable Songs:", songsString, "career", "https://i.ytimg.com/vi/E8_ARd4oKiI/maxresdefault.jpg", "career-image");
+let songs = careerSection("https://i.ytimg.com/vi/E8_ARd4oKiI/maxresdefault.jpg", "Notable Songs:", songsString);
 
-const awards = careerSection("Awards:", awardsString, "career", "https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2017/11/lin-manuel_miranda.jpg", "career-image");
+let awards = careerSection("https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2017/11/lin-manuel_miranda.jpg", "Awards:", awardsString);
 
 let career = `<div class = "careerDiv">${intro} ${musicals} ${roles} ${songs} ${awards}</div>`; 
 
-let careerHTMLString = career;
+let careerHTMLString = heading + career;
 
 document.querySelector("#career").innerHTML = careerHTMLString;
+
+//End of Career page
 
 
 //Personal page
