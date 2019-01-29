@@ -151,7 +151,7 @@ let personalHTMLString = h1personal("Lin Manuel Miranda", "h1") + personalPara(`
 //Prints to DOM
 document.querySelector("#personal-life").innerHTML = personalHTMLString;
 
-//Personal Page
+//End Personal Page
 
 
 
