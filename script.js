@@ -115,12 +115,12 @@ document.querySelector("#news-feed").innerHTML = buildFinalComponent();
 //Personal page
 
 //Building block functions
-const h1personal = function(name, style) {
-    return `<h1 class="${style}">${name}</h1>`
+const h1personal = function(name) {
+    return `<h1 class="h1">${name}</h1>`
 }
 
-const personalPara = function(text, style) {
-  return `<p class="${style}">${text}</p>`
+const personalPara = function(text) {
+  return `<p class="p">${text}</p>`
 }
 
 const familySection = function(text, style, image, imgClass) {
@@ -146,12 +146,16 @@ const pets = petSection("family", linData.personalLife.family.pets[1], "https://
 let family = `<div class = "familyDiv">${wife} ${children} ${parents}</div>`; 
 let petString = `<div class = "petDiv">${pets}</div>`;
 
-//DOMString 
-let personalHTMLString = h1personal("Lin Manuel Miranda", "h1") + personalPara(`Birth Date: ${linData.personalLife.birthDate}`) + personalPara(`Birth Place: ${linData.personalLife.birthLocation}`, "p") + personalPara(`City of Residence: ${linData.personalLife.cityOfResidence}`, "p") + personalPara(`Nationality: ${linData.personalLife.nationality}`) + h1personal(`Family`, "h1") + family + h1personal("Pets", "h1") + petString;
-//Prints to DOM
+
+//Function to create entire HTML String
+function createPersonalHTML(name, birthDateText, birthPlaceText, residenceText, nationalityText, familyHeaderText,  headerPets) {
+  return personalHTMLString = h1personal(name) + personalPara(birthDateText) + personalPara(birthPlaceText) + personalPara(residenceText) + personalPara(nationalityText) + h1personal(familyHeaderText) + family + h1personal(headerPets) + petString;
+}
+
+personalHTMLString = createPersonalHTML("Lin Manuel Miranda", `Birth Date: ${linData.personalLife.birthDate}`, `Birth Place: ${linData.personalLife.birthLocation}`, `City of Residence: ${linData.personalLife.cityOfResidence}`, `Nationality: ${linData.personalLife.nationality}`, `Family`, "Pets")
+
 document.querySelector("#personal-life").innerHTML = personalHTMLString;
 
 //End Personal Page
-
 
 
