@@ -65,6 +65,10 @@ const linData = {
     }
   }
 
+  // beginning of executive summary
+
+  // list of collaborators
+
   const collabList = function(collabArray) {
     let collabList = "";
     for(let i = 0; i < collabArray.length; i++) {
@@ -76,16 +80,20 @@ const linData = {
    collabString = collabList(linData.executiveSummary.knownCollaborations);
    document.querySelector("#executive-summary").innerHTML = collabString;
 
-   const aliasList = function(aliasArray) {
+  //  list of aliases
+
+   const aliasList = function(aliasArray, style) {
     let aliasList = "";
     for(let i = 0; i < aliasArray.length; i++) {
       aliasList += `<li>${aliasArray[i]}</li>`
     }
-    return aliasList;
+    return `<ul class = ${style}>${aliasList}</ul>`;
    }
    
    aliasString = aliasList(linData.executiveSummary.listOfAliases);
    document.querySelector("#executive-summary").innerHTML = aliasString;
+
+  //  declaring functions for each piece
 
   const executiveSummaryH1 = function(name, style){
     return `<h1 class = ${style}>${name}</h1>`
@@ -102,18 +110,19 @@ const linData = {
     return `<p class = ${style}>${text}</p>`
   }
 
-  const executiveImage = function(image, style){
-    return  `<img class = ${style} src = ${image.photURL}>`
+  const executiveImage = function(image, style) {
+    return `<img class = ${style} src=${image}>`
+
   }
 
-  // const collaborations = executiveSummaryLi(linData.executiveSummary.knownCollaborations, "ul")
-
-  const image = executiveImage(linData.executiveSummary.image, "https://pmcvariety.files.wordpress.com/2018/07/lin-manuel.jpg?w=1000", "img")
-
-  // const aliases = executiveSummaryP(linData.executiveSummary.listOfAliases)
+  const image = executiveImage(linData.executiveSummary.image.photURL)
 
   const residence = executiveSummaryP(linData.executiveSummary.countryOfResidence)
 
-  let executiveSummaryHTMLString = executiveSummaryH1("Lin Manuel Miranda", "h1") + executiveSummaryH2("Known Collaborators:", "h2") + executiveSummaryLi(`${collabString}`, "ul") + executiveImage(`${image}`, "img") + executiveSummaryH2("Known Aliases", "h2") + executiveSummaryP(`${aliasString}`, "p") + executiveSummaryH2("Known Residence", "h2") + executiveSummaryP(`${residence}`)
+  // creating htmlstring
+
+  let executiveSummaryHTMLString = executiveSummaryH1("Lin Manuel Miranda", "h1") + image + executiveSummaryH2("Known Collaborators:", "h2") + executiveSummaryLi(`${collabString}`, "ul") +  executiveSummaryH2("Known Aliases", "h2") + executiveSummaryP(`${aliasString}`, "p") + executiveSummaryH2("Known Residence", "h2") + executiveSummaryP(`${residence}`)
 
   document.querySelector("#executive-summary").innerHTML = executiveSummaryHTMLString
+
+  // end of exec summary
